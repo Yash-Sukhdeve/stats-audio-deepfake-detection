@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.npy
+*.npz
+!correlation_analysis/correlation_matrix.npy
+*.checkpoint.*
+.env
+venv/
+*.egg-info/
+dist/
+build/
+.DS_Store

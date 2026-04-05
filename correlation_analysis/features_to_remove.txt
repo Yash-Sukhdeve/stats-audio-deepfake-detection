@@ -1,0 +1,5 @@
+# Features to remove (codec-sensitive OR r > 0.90)
+F1F2_ratio
+F1_mean
+LFCC_2
+PNCC_2

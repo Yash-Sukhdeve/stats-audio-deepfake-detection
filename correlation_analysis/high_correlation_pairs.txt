@@ -1,0 +1,6 @@
+# Features to REMOVE (r > 0.90)
+PNCC_2 <-> LFCC_2: r = 0.9201
+F1_mean <-> F1F2_ratio: r = 0.9123
+
+# Features to MONITOR (0.85 < r < 0.90)
+PNCC_5 <-> LFCC_5: r = 0.8574
