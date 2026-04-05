@@ -1,0 +1,18 @@
+{
+  "experiment": "Domain Shift Analysis: ASVspoof 2019 vs 2021 (Real Data)",
+  "date": "2026-04-05",
+  "source": "ASVspoof 2019 LA eval (71237 files, fixed v4 features)",
+  "target": "ASVspoof 2021 DF eval (181566 files, original v4 features)",
+  "subsample_size": 2000,
+  "permutations": 100,
+  "kernel": "RBF with median heuristic bandwidth",
+  "results": {
+    "PNCC": {"mmd": 1.1246, "p_value": 0.0099, "wasserstein_avg": 0.1440},
+    "LFCC": {"mmd": 0.6581, "p_value": 0.0099, "wasserstein_avg": 3.2942},
+    "Formants": {"mmd": 0.3633, "p_value": 0.0099, "wasserstein_avg": 55.9838},
+    "Prosody": {"mmd": 0.1795, "p_value": 0.0099, "wasserstein_avg": 5.5919},
+    "ALL": {"mmd": 0.3566, "p_value": 0.0099, "wasserstein_avg": 14.3122}
+  },
+  "ranking_by_mmd": ["PNCC (1.12)", "LFCC (0.66)", "Formants (0.36)", "Prosody (0.18)"],
+  "conclusion": "Domain shift varies significantly by feature type (all p<0.01), confirming Theorem 6 decomposition principle. Prosody features show least domain shift, PNCC features show most."
+}

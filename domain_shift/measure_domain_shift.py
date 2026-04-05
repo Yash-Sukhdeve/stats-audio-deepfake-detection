@@ -479,6 +479,17 @@ def main():
         X_source = features_2019[feat_type]
         X_target = features_2021[feat_type]
 
+        # Subsample to avoid OOM on large distance matrices
+        # 5000 samples per domain is sufficient for reliable MMD estimation
+        MAX_SAMPLES = 5000
+        if len(X_source) > MAX_SAMPLES:
+            idx = np.random.choice(len(X_source), MAX_SAMPLES, replace=False)
+            X_source = X_source[idx]
+        if len(X_target) > MAX_SAMPLES:
+            idx = np.random.choice(len(X_target), MAX_SAMPLES, replace=False)
+            X_target = X_target[idx]
+        print(f"  Using {len(X_source)} source, {len(X_target)} target samples")
+
         # Method 1: Maximum Mean Discrepancy
         mmd_result = estimator.compute_mmd(X_source, X_target)
         print(f"MMD: {mmd_result['mmd']:.4f} (p-value: {mmd_result['p_value']:.4f})")

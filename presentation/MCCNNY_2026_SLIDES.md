@@ -240,8 +240,17 @@ where MSR = between-subject variance, MSE = residual, MSC = between-codec varian
 - r = 1.000 across ALL codecs -- traced to missing pywt dependency causing fallback to constant output
 - Excluded from final feature set pending resolution
 
+**Domain Shift on Real Data (ASVspoof 2019 vs 2021, MMD with RBF kernel):**
+
+| Feature Group | MMD (d_T) | p-value |
+|---------------|-----------|---------|
+| Prosody       | 0.1795    | < 0.01  |
+| Formants      | 0.3633    | < 0.01  |
+| LFCC          | 0.6581    | < 0.01  |
+| PNCC          | 1.1246    | < 0.01  |
+
 **Connection to Theorem 6:**
-These results confirm that d_T varies by orders of magnitude across feature types. Selecting T = {PNCC, LFCC, Formants, Prosody} (the v4 feature set, 36D) minimizes d_T while preserving discriminative power.
+d_T varies by 6x across feature types (0.18 to 1.12), confirming the decomposition principle. Prosody features show least domain shift; PNCC features show most. All shifts are statistically significant (p < 0.01, 100 permutations). The v4 feature set (36D) includes all four groups, enabling the bound to weight each group's contribution.
 
 ---
 
