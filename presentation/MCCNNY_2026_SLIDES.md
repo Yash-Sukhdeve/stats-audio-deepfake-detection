@@ -150,7 +150,7 @@ KL(Q || P) = K * ln(2)
 
 ```
 KL(Q || P) = 36 * ln(2) = 24.95
-ln(2 * sqrt(25380) / 0.05) = ln(6374.8) = 8.76
+ln(2 * sqrt(25380) / 0.05) = ln(6372.5) = 8.76
 
 epsilon = sqrt( (24.95 + 8.76) / (2 * 25380) )
         = sqrt( 33.71 / 50760 )
@@ -207,14 +207,14 @@ where MSR = between-subject variance, MSE = residual, MSC = between-codec varian
 | PNCC | 13 | **0.993** | 0.972 | 0.889 | G.711 A-law | RECOMMENDED (ICC >= 0.75) |
 | LFCC | 8 | **0.881** | 0.898 | 0.614 | G.711 u-law | ACCEPTABLE (ICC >= 0.75) |
 | Formants | 8 | **0.985** | 0.940 | 0.768 | G.711 A-law | RECOMMENDED (ICC >= 0.75) |
-| Prosody | 7 | **0.978** | 0.985 | 0.961 | AAC 32k | RECOMMENDED (ICC >= 0.75) |
+| Prosody | 7 | **0.978** | 0.985 | 0.961 | G.711 u-law | RECOMMENDED (ICC >= 0.75) |
 | MODGD | 12 | 0.868 | 0.404 | -0.013 | G.722 | EXCLUDED (min_r < 0) | <!-- Source: comprehensive_feature_analysis_v4_fixed, ICC run 2026-04-05 -->
-| Glottal | 8 | 0.889 | 0.984 | 0.933 | G.711 A-law | EXCLUDED (known codec-sensitive) | <!-- Source: Narendra & Alku (2017) INTERSPEECH -->
+| Glottal | 8 | 0.889 | 0.984 | 0.933 | G.711 u-law | EXCLUDED (known codec-sensitive) | <!-- Source: Narendra & Alku (2017) INTERSPEECH -->
 | Spectral-Contrast | 7 | **0.608** | 0.867 | 0.781 | G.722 | EXCLUDED (ICC < 0.75) |
 
 **ICC(2,1) computed with pingouin on 150 files x 9 codecs (Shrout & Fleiss, 1979).** All v4 feature groups (PNCC, LFCC, Formants, Prosody) exceed ICC >= 0.75 threshold.
 
-**Speaker notes:** The gap between mean r and min r is the key finding. Mean r is misleading -- MODGD has mean r = 0.988 but min r = 0.448. Always report worst-case.
+**Speaker notes:** The gap between mean r and min r is the key finding. Mean r is misleading -- MODGD has mean r = 0.404 but min r = -0.013 (sign inversion under G.722). Always report worst-case. Note: Glottal features have high ICC (0.889) but are excluded based on literature evidence of codec sensitivity (Narendra & Alku, 2017).
 
 ---
 
@@ -223,18 +223,19 @@ where MSR = between-subject variance, MSE = residual, MSC = between-codec varian
 ### Theory Validated: d_T Varies Dramatically by Feature Type
 
 **Exclusion 1: MODGD (Modified Group Delay)**
-- Phase-based feature: min_r = 0.448 under G.722 codec
+- Phase-based feature: mean_r = 0.404, min_r = -0.013 (sign inversion under G.722)
 - G.722 uses sub-band ADPCM -- destroys phase structure while preserving spectral envelope
-- High mean_r (0.988) masks catastrophic worst-case failure
+- ICC = 0.868 appears acceptable, but the per-codec min_r reveals catastrophic worst-case failure
+- **Key lesson: ICC is an omnibus average -- always check worst-case per-codec behavior**
 
-**Exclusion 2: Glottal features**
-- Spectral tilt approximation INVERTS under G.711: min_r = -0.180
-- G.711 uses companding (mu-law/A-law) that distorts the spectral slope
-- Sign inversion means d_T is maximal (TV distance approaches 1)
+**Exclusion 2: Spectral Contrast**
+- ICC = 0.608 (below 0.75 threshold): min_r = 0.781 under G.722
+- Sub-band energy quantization by lossy codecs distorts contrast ratios
 
-**Exclusion 3: Spectral Contrast**
-- Completely unstable: min_r = -0.265 under MP3 32k
-- Quantization of sub-band energies destroys contrast ratios
+**Exclusion 3: Glottal features (literature-based)**
+- Our ICC = 0.889 (appears good), but excluded based on Narendra & Alku (2017, INTERSPEECH):
+  glottal inverse filtering is severely impaired by coded speech, with G.729 destroying glottal waveform microstructure
+- Note: the old (pre-fix) analysis showed min_r = -0.180 due to a correlation method bug (within-sample instead of across-samples). The corrected analysis shows min_r = 0.933. We retain the exclusion based on the peer-reviewed literature, not on our own buggy measurement.
 
 **Wavelet artifact (caveat):**
 - r = 1.000 across ALL codecs -- traced to missing pywt dependency causing fallback to constant output
