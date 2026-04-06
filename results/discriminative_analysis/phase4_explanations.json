@@ -1,0 +1,230 @@
+{
+  "F1_mean": {
+    "feature": "F1_mean",
+    "group": "Formants",
+    "auc": 0.8554426339589283,
+    "icc": 0.9851732939603202,
+    "composite_score": 0.8427592374914098,
+    "direction": "Bonafide audio has HIGHER F1_mean (mean=666.0657) than spoof (mean=552.5864)",
+    "group_rationale": "Formant frequencies (F1, F2) and their bandwidths reflect the vocal tract resonance structure. Current TTS systems model formant centers reasonably well but struggle with: (1) natural formant bandwidth variation, (2) speaker-dependent formant dynamics, (3) coarticulation effects. Formant BANDWIDTH features may be especially discriminative because bandwidth depends on source-filter coupling that most neural vocoders approximate poorly.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "HYPOTHESIS",
+    "references": [
+      "Fant (1960) 'Acoustic Theory of Speech Production'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577"
+    ]
+  },
+  "F1_bw": {
+    "feature": "F1_bw",
+    "group": "Formants",
+    "auc": 0.8509554943560451,
+    "icc": 0.9851732939603202,
+    "composite_score": 0.8383386273883776,
+    "direction": "Bonafide audio has HIGHER F1_bw (mean=515.1559) than spoof (mean=360.7164)",
+    "group_rationale": "Formant frequencies (F1, F2) and their bandwidths reflect the vocal tract resonance structure. Current TTS systems model formant centers reasonably well but struggle with: (1) natural formant bandwidth variation, (2) speaker-dependent formant dynamics, (3) coarticulation effects. Formant BANDWIDTH features may be especially discriminative because bandwidth depends on source-filter coupling that most neural vocoders approximate poorly.",
+    "feature_specific": "First formant bandwidth. Controlled by vocal tract damping and source-filter coupling. Neural vocoders may produce narrower bandwidths (sharper resonances) because they optimize for spectral envelope accuracy without modeling the physical damping mechanisms.",
+    "evidence_grade": "HYPOTHESIS",
+    "references": [
+      "Fant (1960) 'Acoustic Theory of Speech Production'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577"
+    ]
+  },
+  "F2_bw": {
+    "feature": "F2_bw",
+    "group": "Formants",
+    "auc": 0.8339450989392085,
+    "icc": 0.9851732939603202,
+    "composite_score": 0.8215804401040052,
+    "direction": "Bonafide audio has HIGHER F2_bw (mean=0.3419) than spoof (mean=0.2923)",
+    "group_rationale": "Formant frequencies (F1, F2) and their bandwidths reflect the vocal tract resonance structure. Current TTS systems model formant centers reasonably well but struggle with: (1) natural formant bandwidth variation, (2) speaker-dependent formant dynamics, (3) coarticulation effects. Formant BANDWIDTH features may be especially discriminative because bandwidth depends on source-filter coupling that most neural vocoders approximate poorly.",
+    "feature_specific": "Second formant bandwidth. F2 bandwidth is particularly affected by nasalization and coarticulation \u2014 both challenging for TTS.",
+    "evidence_grade": "HYPOTHESIS",
+    "references": [
+      "Fant (1960) 'Acoustic Theory of Speech Production'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577"
+    ]
+  },
+  "F1_std": {
+    "feature": "F1_std",
+    "group": "Formants",
+    "auc": 0.8197862012103903,
+    "icc": 0.9851732939603202,
+    "composite_score": 0.8076314721896579,
+    "direction": "Bonafide audio has HIGHER F1_std (mean=272.3137) than spoof (mean=226.1509)",
+    "group_rationale": "Formant frequencies (F1, F2) and their bandwidths reflect the vocal tract resonance structure. Current TTS systems model formant centers reasonably well but struggle with: (1) natural formant bandwidth variation, (2) speaker-dependent formant dynamics, (3) coarticulation effects. Formant BANDWIDTH features may be especially discriminative because bandwidth depends on source-filter coupling that most neural vocoders approximate poorly.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "HYPOTHESIS",
+    "references": [
+      "Fant (1960) 'Acoustic Theory of Speech Production'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577"
+    ]
+  },
+  "F1_bw_std": {
+    "feature": "F1_bw_std",
+    "group": "Formants",
+    "auc": 0.6503056575547396,
+    "icc": 0.9851732939603202,
+    "composite_score": 0.6406637667342348,
+    "direction": "Bonafide audio has HIGHER F1_bw_std (mean=1948.2216) than spoof (mean=1892.6372)",
+    "group_rationale": "Formant frequencies (F1, F2) and their bandwidths reflect the vocal tract resonance structure. Current TTS systems model formant centers reasonably well but struggle with: (1) natural formant bandwidth variation, (2) speaker-dependent formant dynamics, (3) coarticulation effects. Formant BANDWIDTH features may be especially discriminative because bandwidth depends on source-filter coupling that most neural vocoders approximate poorly.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "HYPOTHESIS",
+    "references": [
+      "Fant (1960) 'Acoustic Theory of Speech Production'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577"
+    ]
+  },
+  "F2_bw_std": {
+    "feature": "F2_bw_std",
+    "group": "Formants",
+    "auc": 0.6440177733578132,
+    "icc": 0.9851732939603202,
+    "composite_score": 0.6344691111479077,
+    "direction": "Spoof audio has HIGHER F2_bw_std (mean=1340.0509) than bonafide (mean=1282.1558)",
+    "group_rationale": "Formant frequencies (F1, F2) and their bandwidths reflect the vocal tract resonance structure. Current TTS systems model formant centers reasonably well but struggle with: (1) natural formant bandwidth variation, (2) speaker-dependent formant dynamics, (3) coarticulation effects. Formant BANDWIDTH features may be especially discriminative because bandwidth depends on source-filter coupling that most neural vocoders approximate poorly.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "HYPOTHESIS",
+    "references": [
+      "Fant (1960) 'Acoustic Theory of Speech Production'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577"
+    ]
+  },
+  "PNCC_10": {
+    "feature": "PNCC_10",
+    "group": "PNCC",
+    "auc": 0.6333409662722698,
+    "icc": 0.9933701294585255,
+    "composite_score": 0.6291419976572723,
+    "direction": "Bonafide audio has HIGHER PNCC_10 (mean=0.0000) than spoof (mean=-0.0000)",
+    "group_rationale": "PNCC uses gammatone filterbank (Patterson et al., 1992) that models human auditory processing. TTS/VC systems typically operate in mel-frequency domain, creating spectral artifacts in the gammatone-transformed space. The power normalization step amplifies differences in low-energy regions where synthesis artifacts concentrate.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "SUPPORTED",
+    "references": [
+      "Kim & Stern (2016) IEEE/ACM TASLP 24(7):1315-1329",
+      "Todisco et al. (2019) Interspeech pp. 1008-1012"
+    ]
+  },
+  "F0_std": {
+    "feature": "F0_std",
+    "group": "Prosody",
+    "auc": 0.6399727152182783,
+    "icc": 0.977644319713117,
+    "composite_score": 0.6256656898045301,
+    "direction": "Bonafide audio has HIGHER F0_std (mean=40.6427) than spoof (mean=29.3594)",
+    "group_rationale": "Prosodic features (F0 contour, speech rate, pause patterns) capture suprasegmental information. TTS systems often produce: (1) unnaturally smooth F0 contours lacking micro-prosodic perturbations (jitter), (2) regular speech rate without the natural variation of spontaneous speech, (3) systematically different pause patterns from read speech corpora. F0_std specifically captures the dynamic range of pitch, which TTS tends to compress.",
+    "feature_specific": "F0 standard deviation measures pitch variability. Natural speech has substantial F0 variation driven by linguistic stress, emotion, and micro-prosody. TTS systems trained on read speech corpora produce smoother F0 contours. If F0_std is LOWER in spoof: confirms TTS produces unnaturally stable pitch. If HIGHER: some TTS systems may overcompensate with exaggerated intonation.",
+    "evidence_grade": "SUPPORTED",
+    "references": [
+      "Hirst (2005) 'Automatic Analysis of Prosody for Multi-Lingual Speech Corpora'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577",
+      "Muller et al. (2022) ICASSP pp. 6602-6606"
+    ]
+  },
+  "PNCC_12": {
+    "feature": "PNCC_12",
+    "group": "PNCC",
+    "auc": 0.6206511627906977,
+    "icc": 0.9933701294585255,
+    "composite_score": 0.6165363259299798,
+    "direction": "Bonafide audio has HIGHER PNCC_12 (mean=-0.0000) than spoof (mean=-0.0000)",
+    "group_rationale": "PNCC uses gammatone filterbank (Patterson et al., 1992) that models human auditory processing. TTS/VC systems typically operate in mel-frequency domain, creating spectral artifacts in the gammatone-transformed space. The power normalization step amplifies differences in low-energy regions where synthesis artifacts concentrate.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "SUPPORTED",
+    "references": [
+      "Kim & Stern (2016) IEEE/ACM TASLP 24(7):1315-1329",
+      "Todisco et al. (2019) Interspeech pp. 1008-1012"
+    ]
+  },
+  "pause_ratio": {
+    "feature": "pause_ratio",
+    "group": "Prosody",
+    "auc": 0.6202950836393308,
+    "icc": 0.977644319713117,
+    "composite_score": 0.6064279650659646,
+    "direction": "Spoof audio has HIGHER pause_ratio (mean=0.0912) than bonafide (mean=0.0777)",
+    "group_rationale": "Prosodic features (F0 contour, speech rate, pause patterns) capture suprasegmental information. TTS systems often produce: (1) unnaturally smooth F0 contours lacking micro-prosodic perturbations (jitter), (2) regular speech rate without the natural variation of spontaneous speech, (3) systematically different pause patterns from read speech corpora. F0_std specifically captures the dynamic range of pitch, which TTS tends to compress.",
+    "feature_specific": "Proportion of silence in the utterance. TTS pause insertion is typically rule-based and may differ from natural pause patterns.",
+    "evidence_grade": "SUPPORTED",
+    "references": [
+      "Hirst (2005) 'Automatic Analysis of Prosody for Multi-Lingual Speech Corpora'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577",
+      "Muller et al. (2022) ICASSP pp. 6602-6606"
+    ]
+  },
+  "PNCC_1": {
+    "feature": "PNCC_1",
+    "group": "PNCC",
+    "auc": 0.6065995257037944,
+    "icc": 0.9933701294585255,
+    "composite_score": 0.6025778493778584,
+    "direction": "Spoof audio has HIGHER PNCC_1 (mean=0.0000) than bonafide (mean=0.0000)",
+    "group_rationale": "PNCC uses gammatone filterbank (Patterson et al., 1992) that models human auditory processing. TTS/VC systems typically operate in mel-frequency domain, creating spectral artifacts in the gammatone-transformed space. The power normalization step amplifies differences in low-energy regions where synthesis artifacts concentrate.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "SUPPORTED",
+    "references": [
+      "Kim & Stern (2016) IEEE/ACM TASLP 24(7):1315-1329",
+      "Todisco et al. (2019) Interspeech pp. 1008-1012"
+    ]
+  },
+  "duration": {
+    "feature": "duration",
+    "group": "Prosody",
+    "auc": 0.612625067999456,
+    "icc": 0.977644319713117,
+    "composite_score": 0.5989294178435303,
+    "direction": "Bonafide audio has HIGHER duration (mean=0.0863) than spoof (mean=0.0794)",
+    "group_rationale": "Prosodic features (F0 contour, speech rate, pause patterns) capture suprasegmental information. TTS systems often produce: (1) unnaturally smooth F0 contours lacking micro-prosodic perturbations (jitter), (2) regular speech rate without the natural variation of spontaneous speech, (3) systematically different pause patterns from read speech corpora. F0_std specifically captures the dynamic range of pitch, which TTS tends to compress.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "SUPPORTED",
+    "references": [
+      "Hirst (2005) 'Automatic Analysis of Prosody for Multi-Lingual Speech Corpora'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577",
+      "Muller et al. (2022) ICASSP pp. 6602-6606"
+    ]
+  },
+  "PNCC_11": {
+    "feature": "PNCC_11",
+    "group": "PNCC",
+    "auc": 0.5850682459540324,
+    "icc": 0.9933701294585255,
+    "composite_score": 0.5811893192254296,
+    "direction": "Bonafide audio has HIGHER PNCC_11 (mean=0.0000) than spoof (mean=-0.0000)",
+    "group_rationale": "PNCC uses gammatone filterbank (Patterson et al., 1992) that models human auditory processing. TTS/VC systems typically operate in mel-frequency domain, creating spectral artifacts in the gammatone-transformed space. The power normalization step amplifies differences in low-energy regions where synthesis artifacts concentrate.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "SUPPORTED",
+    "references": [
+      "Kim & Stern (2016) IEEE/ACM TASLP 24(7):1315-1329",
+      "Todisco et al. (2019) Interspeech pp. 1008-1012"
+    ]
+  },
+  "PNCC_4": {
+    "feature": "PNCC_4",
+    "group": "PNCC",
+    "auc": 0.5829296375628994,
+    "icc": 0.9933701294585255,
+    "composite_score": 0.5790648895310687,
+    "direction": "Spoof audio has HIGHER PNCC_4 (mean=0.0000) than bonafide (mean=0.0000)",
+    "group_rationale": "PNCC uses gammatone filterbank (Patterson et al., 1992) that models human auditory processing. TTS/VC systems typically operate in mel-frequency domain, creating spectral artifacts in the gammatone-transformed space. The power normalization step amplifies differences in low-energy regions where synthesis artifacts concentrate.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "SUPPORTED",
+    "references": [
+      "Kim & Stern (2016) IEEE/ACM TASLP 24(7):1315-1329",
+      "Todisco et al. (2019) Interspeech pp. 1008-1012"
+    ]
+  },
+  "F2_mean": {
+    "feature": "F2_mean",
+    "group": "Formants",
+    "auc": 0.5859899870801033,
+    "icc": 0.9851732939603202,
+    "composite_score": 0.5773016857994708,
+    "direction": "Bonafide audio has HIGHER F2_mean (mean=441.3850) than spoof (mean=419.5166)",
+    "group_rationale": "Formant frequencies (F1, F2) and their bandwidths reflect the vocal tract resonance structure. Current TTS systems model formant centers reasonably well but struggle with: (1) natural formant bandwidth variation, (2) speaker-dependent formant dynamics, (3) coarticulation effects. Formant BANDWIDTH features may be especially discriminative because bandwidth depends on source-filter coupling that most neural vocoders approximate poorly.",
+    "feature_specific": "See group-level rationale.",
+    "evidence_grade": "HYPOTHESIS",
+    "references": [
+      "Fant (1960) 'Acoustic Theory of Speech Production'",
+      "Wester et al. (2016) Interspeech pp. 1573-1577"
+    ]
+  }
+}
