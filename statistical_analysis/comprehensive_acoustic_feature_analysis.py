@@ -939,7 +939,13 @@ def compute_icc_for_feature(orig_values: np.ndarray, coded_values_by_codec: Dict
         icc_result = pg.intraclass_corr(
             data=df, targets='target', raters='rater', ratings='rating'
         )
-        # ICC2 = two-way random, single measures, absolute agreement
+        # ICC(A,1) = two-way random/mixed, absolute agreement, single measures
+        # This is equivalent to ICC(2,1) in Shrout & Fleiss (1979) notation
+        # pingouin uses ICC(A,1) label instead of ICC2
+        icc_a1_row = icc_result[icc_result['Type'] == 'ICC(A,1)']
+        if len(icc_a1_row) > 0:
+            return float(icc_a1_row['ICC'].values[0])
+        # Fallback: try ICC2 label (older pingouin versions)
         icc2_row = icc_result[icc_result['Type'] == 'ICC2']
         if len(icc2_row) > 0:
             return float(icc2_row['ICC'].values[0])

@@ -1,0 +1,1215 @@
+{
+  "timestamp": "2026-04-05T17:59:04.450927",
+  "total_features": 16,
+  "highly_recommended": [
+    "Chroma",
+    "Prosody",
+    "Wavelet"
+  ],
+  "recommended": [
+    "Tonnetz",
+    "Glottal",
+    "Temporal"
+  ],
+  "acceptable": [
+    "MFCC",
+    "PNCC",
+    "Mel-Spectrogram"
+  ],
+  "not_recommended": [
+    "LFCC",
+    "CQT",
+    "Spectral-Contrast",
+    "Spectral-Statistics",
+    "MODGD",
+    "Instantaneous-Freq",
+    "Formants"
+  ],
+  "suggested_feature_dims": 57,
+  "results": {
+    "MFCC": {
+      "name": "MFCC",
+      "category": "Spectral",
+      "n_dims": 13,
+      "mean_pearson_r": 0.9546660830594544,
+      "min_pearson_r": 0.8485449077380187,
+      "max_pearson_r": 0.9956753604391403,
+      "std_pearson_r": 0.0572056503167298,
+      "worst_codec": "g711_ulaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.8491167045114529,
+          "std_pearson_r": 0.0701762162817324,
+          "min_pearson_r": 0.7054183176637407,
+          "mean_mae": 12.604269261866191
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.8485449077380187,
+          "std_pearson_r": 0.07066110074367253,
+          "min_pearson_r": 0.7086230149045963,
+          "mean_mae": 12.595681743068395
+        },
+        "g722": {
+          "mean_pearson_r": 0.9642518509063508,
+          "std_pearson_r": 0.02532541270104731,
+          "min_pearson_r": 0.9147031415905972,
+          "mean_mae": 2.613102512801382
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9798782655092627,
+          "std_pearson_r": 0.013736684995584074,
+          "min_pearson_r": 0.9523308205672435,
+          "mean_mae": 3.487408590077847
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9869252927242381,
+          "std_pearson_r": 0.009503007824583692,
+          "min_pearson_r": 0.967905524228078,
+          "mean_mae": 3.2355998321713564
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9891249359564285,
+          "std_pearson_r": 0.0067753338185267895,
+          "min_pearson_r": 0.9790218876296074,
+          "mean_mae": 3.3132472082974895
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9859147205027712,
+          "std_pearson_r": 0.00852776867162496,
+          "min_pearson_r": 0.9707206775210827,
+          "mean_mae": 1.898419335394929
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9925627092474258,
+          "std_pearson_r": 0.0053335750310731095,
+          "min_pearson_r": 0.9823474326566494,
+          "mean_mae": 1.2923449826402087
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9956753604391403,
+          "std_pearson_r": 0.0030762341761496692,
+          "min_pearson_r": 0.9898566809657299,
+          "mean_mae": 1.1134811753245852
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9921708014477806,
+      "recommendation": "Moderate stability (min_r=0.849), use with caution",
+      "status": "ACCEPTABLE"
+    },
+    "LFCC": {
+      "name": "LFCC",
+      "category": "Spectral",
+      "n_dims": 8,
+      "mean_pearson_r": 0.8982622644214396,
+      "min_pearson_r": 0.614313433523265,
+      "max_pearson_r": 0.9987672450552221,
+      "std_pearson_r": 0.15072115911336248,
+      "worst_codec": "g711_ulaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.6232704983956178,
+          "std_pearson_r": 0.13486637658553935,
+          "min_pearson_r": 0.42868855527232447,
+          "mean_mae": 6.256688699869463
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.614313433523265,
+          "std_pearson_r": 0.13571042760526134,
+          "min_pearson_r": 0.4402123113965494,
+          "mean_mae": 6.20425771364095
+        },
+        "g722": {
+          "mean_pearson_r": 0.9303382027589868,
+          "std_pearson_r": 0.03181957917740843,
+          "min_pearson_r": 0.8796433780325146,
+          "mean_mae": 0.6098189067061828
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9613732937038905,
+          "std_pearson_r": 0.016858530056818352,
+          "min_pearson_r": 0.9422400860367891,
+          "mean_mae": 1.711858349646875
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9861442958698778,
+          "std_pearson_r": 0.007312617422986622,
+          "min_pearson_r": 0.9778589864249579,
+          "mean_mae": 1.4043950837339019
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9860420374850847,
+          "std_pearson_r": 0.00753535853409504,
+          "min_pearson_r": 0.978667673787787,
+          "mean_mae": 1.374349316575507
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9862106347854003,
+          "std_pearson_r": 0.003669234865667262,
+          "min_pearson_r": 0.9821454858990226,
+          "mean_mae": 0.32723892374260555
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9979007382156122,
+          "std_pearson_r": 0.0007054353971484555,
+          "min_pearson_r": 0.9967663879833865,
+          "mean_mae": 0.08807757049012478
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9987672450552221,
+          "std_pearson_r": 0.00036926587158990395,
+          "min_pearson_r": 0.9982941080262427,
+          "mean_mae": 0.06382660303038344
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.8809131729774747,
+      "recommendation": "Poor stability (min_r=0.614), avoid for codec-robust systems",
+      "status": "NOT_RECOMMENDED"
+    },
+    "PNCC": {
+      "name": "PNCC",
+      "category": "Spectral",
+      "n_dims": 13,
+      "mean_pearson_r": 0.9720916191127523,
+      "min_pearson_r": 0.8886374856197556,
+      "max_pearson_r": 0.9997237185091135,
+      "std_pearson_r": 0.044644113426917736,
+      "worst_codec": "g711_alaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.8886374856197556,
+          "std_pearson_r": 0.09656370955103229,
+          "min_pearson_r": 0.6568703193407777,
+          "mean_mae": 0.10906956705472297
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.8891412769568224,
+          "std_pearson_r": 0.09791136076239576,
+          "min_pearson_r": 0.6539649536750592,
+          "mean_mae": 0.1086470138647839
+        },
+        "g722": {
+          "mean_pearson_r": 0.9863350450846681,
+          "std_pearson_r": 0.015075014810717866,
+          "min_pearson_r": 0.9393367956437008,
+          "mean_mae": 0.01229499133570777
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9944500288099043,
+          "std_pearson_r": 0.00501891136812425,
+          "min_pearson_r": 0.9844747634287079,
+          "mean_mae": 0.012490101743373278
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9982423119029383,
+          "std_pearson_r": 0.001656127284093768,
+          "min_pearson_r": 0.9938318330567534,
+          "mean_mae": 0.010348319717861395
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9986179464723921,
+          "std_pearson_r": 0.00135471557129038,
+          "min_pearson_r": 0.9949072230235438,
+          "mean_mae": 0.011466630662364693
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9942016703471134,
+          "std_pearson_r": 0.0034834647997682338,
+          "min_pearson_r": 0.9866771236863433,
+          "mean_mae": 0.011284708876289977
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9994750883120642,
+          "std_pearson_r": 0.0003723927721819909,
+          "min_pearson_r": 0.998688319561414,
+          "mean_mae": 0.0020932844532834593
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9997237185091135,
+          "std_pearson_r": 0.00015278522399617828,
+          "min_pearson_r": 0.9993698880889211,
+          "mean_mae": 0.0014264922128642606
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9933701294585255,
+      "recommendation": "Moderate stability (min_r=0.889), use with caution",
+      "status": "ACCEPTABLE"
+    },
+    "CQT": {
+      "name": "CQT",
+      "category": "Spectral",
+      "n_dims": 40,
+      "mean_pearson_r": 0.6846982021959822,
+      "min_pearson_r": 0.4359797742656063,
+      "max_pearson_r": 0.9873276676511935,
+      "std_pearson_r": 0.1453283104896533,
+      "worst_codec": "g722",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.7540097129837453,
+          "std_pearson_r": 0.18729504593075594,
+          "min_pearson_r": 0.4775198928650373,
+          "mean_mae": 0.001288239325279618
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.7399822912942017,
+          "std_pearson_r": 0.2036054760064041,
+          "min_pearson_r": 0.40939813528435204,
+          "mean_mae": 0.0013245427526900012
+        },
+        "g722": {
+          "mean_pearson_r": 0.4359797742656063,
+          "std_pearson_r": 0.3704441672340622,
+          "min_pearson_r": 0.11230830606374598,
+          "mean_mae": 0.0025931596585028653
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.607038274826678,
+          "std_pearson_r": 0.27583205525961024,
+          "min_pearson_r": 0.28413351498335454,
+          "mean_mae": 0.004177994989875115
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.7771572262593043,
+          "std_pearson_r": 0.1571300853979762,
+          "min_pearson_r": 0.5924178643344885,
+          "mean_mae": 0.0023382606385888983
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9873276676511935,
+          "std_pearson_r": 0.014057164556729366,
+          "min_pearson_r": 0.9575285519832062,
+          "mean_mae": 0.0017770145425208635
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.60633381605247,
+          "std_pearson_r": 0.2737065529792373,
+          "min_pearson_r": 0.2234579536258549,
+          "mean_mae": 0.0050016490426953684
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.6541582307502235,
+          "std_pearson_r": 0.24895477346219955,
+          "min_pearson_r": 0.32566666899800895,
+          "mean_mae": 0.0028692278026198953
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.6002968256804165,
+          "std_pearson_r": 0.28840473049005966,
+          "min_pearson_r": 0.19442027102036372,
+          "mean_mae": 0.0022588329839457392
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.998911682771833,
+      "recommendation": "Poor stability (min_r=0.436), avoid for codec-robust systems",
+      "status": "NOT_RECOMMENDED"
+    },
+    "Mel-Spectrogram": {
+      "name": "Mel-Spectrogram",
+      "category": "Spectral",
+      "n_dims": 40,
+      "mean_pearson_r": 0.9619274428161317,
+      "min_pearson_r": 0.8355875504934337,
+      "max_pearson_r": 0.9997125813138092,
+      "std_pearson_r": 0.06695084655918572,
+      "worst_codec": "g711_alaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.8355875504934337,
+          "std_pearson_r": 0.3448403999981553,
+          "min_pearson_r": 0.022805420902908206,
+          "mean_mae": 3.4811387973255568
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.8379290214629084,
+          "std_pearson_r": 0.34148632026842896,
+          "min_pearson_r": 0.020799280413383817,
+          "mean_mae": 3.347683720306888
+        },
+        "g722": {
+          "mean_pearson_r": 0.9916944290682347,
+          "std_pearson_r": 0.015815466489698022,
+          "min_pearson_r": 0.9396588715566455,
+          "mean_mae": 0.3840908502546339
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9978036015289128,
+          "std_pearson_r": 0.006071375328458171,
+          "min_pearson_r": 0.9622400981612873,
+          "mean_mae": 0.36050235889799676
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9993220069681943,
+          "std_pearson_r": 0.003906100581628638,
+          "min_pearson_r": 0.9749357327483825,
+          "mean_mae": 0.13494979229256363
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9993626658025114,
+          "std_pearson_r": 0.003913094160661916,
+          "min_pearson_r": 0.9749281788452435,
+          "mean_mae": 0.08900029597081847
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9962432079687865,
+          "std_pearson_r": 0.0027968377733111633,
+          "min_pearson_r": 0.9885812944888593,
+          "mean_mae": 0.7071264411076721
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9996919207383957,
+          "std_pearson_r": 0.00011973600144598952,
+          "min_pearson_r": 0.9993970199388074,
+          "mean_mae": 0.15195018880530872
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9997125813138092,
+          "std_pearson_r": 6.515561213657359e-05,
+          "min_pearson_r": 0.999552754093,
+          "mean_mae": 0.1461070101502474
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9451777106208125,
+      "recommendation": "Moderate stability (min_r=0.836), use with caution",
+      "status": "ACCEPTABLE"
+    },
+    "Chroma": {
+      "name": "Chroma",
+      "category": "Spectral",
+      "n_dims": 12,
+      "mean_pearson_r": 0.9733843513620651,
+      "min_pearson_r": 0.9597929528909699,
+      "max_pearson_r": 0.9879156769666902,
+      "std_pearson_r": 0.00949669571519405,
+      "worst_codec": "g722",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.9659358589479402,
+          "std_pearson_r": 0.009779261908511638,
+          "min_pearson_r": 0.947676800018138,
+          "mean_mae": 0.019697379464351582
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.9677523913666293,
+          "std_pearson_r": 0.00919838429071931,
+          "min_pearson_r": 0.9520996119352304,
+          "mean_mae": 0.018527705284479577
+        },
+        "g722": {
+          "mean_pearson_r": 0.9597929528909699,
+          "std_pearson_r": 0.017375312802276235,
+          "min_pearson_r": 0.9184644698780631,
+          "mean_mae": 0.018584105681031526
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9745677735309498,
+          "std_pearson_r": 0.007839446844046432,
+          "min_pearson_r": 0.9623530606675483,
+          "mean_mae": 0.014367043619575066
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9831208841718518,
+          "std_pearson_r": 0.004782130336329846,
+          "min_pearson_r": 0.9712585139387833,
+          "mean_mae": 0.01085705687752247
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9879156769666902,
+          "std_pearson_r": 0.00348453758524961,
+          "min_pearson_r": 0.9821010658576995,
+          "mean_mae": 0.006903587287158997
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9614848362720062,
+          "std_pearson_r": 0.011160326890489307,
+          "min_pearson_r": 0.9389799315516105,
+          "mean_mae": 0.019129860956081584
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.978406021888404,
+          "std_pearson_r": 0.0038698030216333295,
+          "min_pearson_r": 0.9737254948586522,
+          "mean_mae": 0.012353196987715778
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9814827662231459,
+          "std_pearson_r": 0.004955077905039032,
+          "min_pearson_r": 0.9710540791846075,
+          "mean_mae": 0.01051902554141588
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9710830625274661,
+      "recommendation": "Excellent stability (min_r=0.960)",
+      "status": "HIGHLY_RECOMMENDED"
+    },
+    "Spectral-Contrast": {
+      "name": "Spectral-Contrast",
+      "category": "Spectral",
+      "n_dims": 7,
+      "mean_pearson_r": 0.8669585237831541,
+      "min_pearson_r": 0.781351208088748,
+      "max_pearson_r": 0.9319855893502921,
+      "std_pearson_r": 0.05866460608978026,
+      "worst_codec": "g722",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.7959855513306345,
+          "std_pearson_r": 0.21973470525995242,
+          "min_pearson_r": 0.3473114666231405,
+          "mean_mae": 5.050650161853464
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.7919566628903801,
+          "std_pearson_r": 0.22860445442820648,
+          "min_pearson_r": 0.3364241087000772,
+          "mean_mae": 4.913591584492262
+        },
+        "g722": {
+          "mean_pearson_r": 0.781351208088748,
+          "std_pearson_r": 0.3358788408910409,
+          "min_pearson_r": -0.00032697793238436156,
+          "mean_mae": 2.5033575415678806
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.857166591744382,
+          "std_pearson_r": 0.1779045184990049,
+          "min_pearson_r": 0.5342459669686731,
+          "mean_mae": 4.176428387438879
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9025036913216852,
+          "std_pearson_r": 0.14743443771822723,
+          "min_pearson_r": 0.6124027609572604,
+          "mean_mae": 2.7348461139761473
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9302534099568799,
+          "std_pearson_r": 0.13174954482558723,
+          "min_pearson_r": 0.6188189359238078,
+          "mean_mae": 1.9520787314331127
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.8918375261623803,
+          "std_pearson_r": 0.18353005432596817,
+          "min_pearson_r": 0.4436492628259651,
+          "mean_mae": 1.2582951268194082
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9195864832030047,
+          "std_pearson_r": 0.17956312527471097,
+          "min_pearson_r": 0.4798851218940724,
+          "mean_mae": 0.9401202645527762
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9319855893502921,
+          "std_pearson_r": 0.15279025745822758,
+          "min_pearson_r": 0.5578177743460555,
+          "mean_mae": 0.8769741002733767
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.6082654648617869,
+      "recommendation": "Poor stability (min_r=0.781), avoid for codec-robust systems",
+      "status": "NOT_RECOMMENDED"
+    },
+    "Tonnetz": {
+      "name": "Tonnetz",
+      "category": "Spectral",
+      "n_dims": 6,
+      "mean_pearson_r": 0.9579662659456206,
+      "min_pearson_r": 0.9417781198224034,
+      "max_pearson_r": 0.97071499242643,
+      "std_pearson_r": 0.008467510202596274,
+      "worst_codec": "aac_32k",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.9485218324900679,
+          "std_pearson_r": 0.030107798738505907,
+          "min_pearson_r": 0.8855477444854163,
+          "mean_mae": 0.00458561157755903
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.9656315219650472,
+          "std_pearson_r": 0.010573350914468078,
+          "min_pearson_r": 0.9554158956003969,
+          "mean_mae": 0.004164356554458256
+        },
+        "g722": {
+          "mean_pearson_r": 0.9599404146309172,
+          "std_pearson_r": 0.016963065645131847,
+          "min_pearson_r": 0.9378852219300319,
+          "mean_mae": 0.004255410167542924
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9610960051478319,
+          "std_pearson_r": 0.016063691410124536,
+          "min_pearson_r": 0.9373584180118478,
+          "mean_mae": 0.004251048874165355
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.953287843684978,
+          "std_pearson_r": 0.021916821739460073,
+          "min_pearson_r": 0.9157790414988696,
+          "mean_mae": 0.0042151845918647875
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.97071499242643,
+          "std_pearson_r": 0.012775313294907081,
+          "min_pearson_r": 0.9536378004081709,
+          "mean_mae": 0.002787465221175102
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9417781198224034,
+          "std_pearson_r": 0.018554706822939613,
+          "min_pearson_r": 0.9181662954048667,
+          "mean_mae": 0.005594592777242771
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9567794138588122,
+          "std_pearson_r": 0.01822307770633901,
+          "min_pearson_r": 0.9280474494631192,
+          "mean_mae": 0.004486629017699877
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9639462494840975,
+          "std_pearson_r": 0.012596887989998713,
+          "min_pearson_r": 0.9509460323836068,
+          "mean_mae": 0.00395021955086441
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9642771191279486,
+      "recommendation": "Good stability (min_r=0.942)",
+      "status": "RECOMMENDED"
+    },
+    "Spectral-Statistics": {
+      "name": "Spectral-Statistics",
+      "category": "Spectral",
+      "n_dims": 8,
+      "mean_pearson_r": 0.8769971708764803,
+      "min_pearson_r": 0.554516223006313,
+      "max_pearson_r": 0.9992487559366552,
+      "std_pearson_r": 0.16967874486338458,
+      "worst_codec": "g711_alaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.554516223006313,
+          "std_pearson_r": 0.18989100847563736,
+          "min_pearson_r": 0.19142537066141252,
+          "mean_mae": 544.1743910537026
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.5737262028488088,
+          "std_pearson_r": 0.14108506299071696,
+          "min_pearson_r": 0.2994194991092876,
+          "mean_mae": 554.7071796630913
+        },
+        "g722": {
+          "mean_pearson_r": 0.8983668061006705,
+          "std_pearson_r": 0.03370372051612453,
+          "min_pearson_r": 0.8429660092961089,
+          "mean_mae": 88.56390330592238
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.95927697715615,
+          "std_pearson_r": 0.06152235026311734,
+          "min_pearson_r": 0.8064282656739391,
+          "mean_mae": 55.35149100358887
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9627737997454976,
+          "std_pearson_r": 0.05552252784566817,
+          "min_pearson_r": 0.8245244247834215,
+          "mean_mae": 59.285347873533176
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9608460264509685,
+          "std_pearson_r": 0.058576161489937634,
+          "min_pearson_r": 0.8157778409659154,
+          "mean_mae": 58.85790595134749
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9854600880790856,
+          "std_pearson_r": 0.012474890535610145,
+          "min_pearson_r": 0.9552224882685078,
+          "mean_mae": 26.397681245150483
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9987596585641736,
+          "std_pearson_r": 0.001915033571770691,
+          "min_pearson_r": 0.9938667102965707,
+          "mean_mae": 3.7772593543640762
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9992487559366552,
+          "std_pearson_r": 0.0010561478026712924,
+          "min_pearson_r": 0.9965757340394091,
+          "mean_mae": 3.3228606329788293
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9178504635193935,
+      "recommendation": "Poor stability (min_r=0.555), avoid for codec-robust systems",
+      "status": "NOT_RECOMMENDED"
+    },
+    "MODGD": {
+      "name": "MODGD",
+      "category": "Phase",
+      "n_dims": 12,
+      "mean_pearson_r": 0.4036288580135645,
+      "min_pearson_r": -0.013241520044803256,
+      "max_pearson_r": 0.7697683706365427,
+      "std_pearson_r": 0.23219998204808961,
+      "worst_codec": "g722",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.24680710262995328,
+          "std_pearson_r": 0.03421345053053141,
+          "min_pearson_r": 0.1728790617811983,
+          "mean_mae": 0.06472644074355328
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.1599347150901356,
+          "std_pearson_r": 0.0266070926205704,
+          "min_pearson_r": 0.11137390028601951,
+          "mean_mae": 0.07536451233304083
+        },
+        "g722": {
+          "mean_pearson_r": -0.013241520044803256,
+          "std_pearson_r": 0.06989316474980035,
+          "min_pearson_r": -0.10413088435133926,
+          "mean_mae": 0.103340787671975
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.3201480591395243,
+          "std_pearson_r": 0.04237385044685203,
+          "min_pearson_r": 0.2670336236522467,
+          "mean_mae": 0.015106303333213953
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.5317722053800417,
+          "std_pearson_r": 0.039428631122927056,
+          "min_pearson_r": 0.4841121709204398,
+          "mean_mae": 0.012943934917050435
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.5352695785196332,
+          "std_pearson_r": 0.04137824054465666,
+          "min_pearson_r": 0.4832803224880866,
+          "mean_mae": 0.012477141333022228
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.45473936204163334,
+          "std_pearson_r": 0.06073072355966,
+          "min_pearson_r": 0.35595102637527537,
+          "mean_mae": 0.01300842063374116
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.62746184872942,
+          "std_pearson_r": 0.05315110767764231,
+          "min_pearson_r": 0.5590568804957651,
+          "mean_mae": 0.010581978114298719
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.7697683706365427,
+          "std_pearson_r": 0.03699329764531737,
+          "min_pearson_r": 0.7239006653694244,
+          "mean_mae": 0.008677746302441941
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.8676744133157944,
+      "recommendation": "Poor stability (min_r=-0.013), avoid for codec-robust systems",
+      "status": "NOT_RECOMMENDED"
+    },
+    "Instantaneous-Freq": {
+      "name": "Instantaneous-Freq",
+      "category": "Phase",
+      "n_dims": 8,
+      "mean_pearson_r": 0.8593386690394028,
+      "min_pearson_r": 0.6580758823316173,
+      "max_pearson_r": 0.937049381593689,
+      "std_pearson_r": 0.09822428927244713,
+      "worst_codec": "g711_alaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.6580758823316173,
+          "std_pearson_r": 0.28252872941015655,
+          "min_pearson_r": 0.12090761480333277,
+          "mean_mae": 144.96700746665422
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.7090633605766857,
+          "std_pearson_r": 0.22699718124266519,
+          "min_pearson_r": 0.2492844987449949,
+          "mean_mae": 144.0600307902454
+        },
+        "g722": {
+          "mean_pearson_r": 0.8469640874171728,
+          "std_pearson_r": 0.19157090678323213,
+          "min_pearson_r": 0.35148130297173513,
+          "mean_mae": 36.24885647414017
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.8918083724066016,
+          "std_pearson_r": 0.17726865870546554,
+          "min_pearson_r": 0.4330901676558442,
+          "mean_mae": 26.94872122616844
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9260517460637623,
+          "std_pearson_r": 0.11445839764513147,
+          "min_pearson_r": 0.6332691894172078,
+          "mean_mae": 14.448940561089767
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9190402568046776,
+          "std_pearson_r": 0.13328277373796718,
+          "min_pearson_r": 0.5752880602642205,
+          "mean_mae": 14.194961159813495
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9092760374130675,
+          "std_pearson_r": 0.1404972509155031,
+          "min_pearson_r": 0.5460813154606979,
+          "mean_mae": 29.08706294120433
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9367188967473514,
+          "std_pearson_r": 0.1589969997869846,
+          "min_pearson_r": 0.5162065265356278,
+          "mean_mae": 6.015221524213941
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.937049381593689,
+          "std_pearson_r": 0.16088502538038152,
+          "min_pearson_r": 0.5114368296952401,
+          "mean_mae": 5.105681165221441
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9993354534921298,
+      "recommendation": "Poor stability (min_r=0.658), avoid for codec-robust systems",
+      "status": "NOT_RECOMMENDED"
+    },
+    "Prosody": {
+      "name": "Prosody",
+      "category": "Prosodic",
+      "n_dims": 7,
+      "mean_pearson_r": 0.9852398499383577,
+      "min_pearson_r": 0.9609868823272725,
+      "max_pearson_r": 0.9999019116028048,
+      "std_pearson_r": 0.01401019777213647,
+      "worst_codec": "g711_ulaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.9610612210309396,
+          "std_pearson_r": 0.06120310565032227,
+          "min_pearson_r": 0.8290471126860429,
+          "mean_mae": 4.679143425115523
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.9609868823272725,
+          "std_pearson_r": 0.06123732989607486,
+          "min_pearson_r": 0.8290654312613972,
+          "mean_mae": 4.702105381534387
+        },
+        "g722": {
+          "mean_pearson_r": 0.9945496328001256,
+          "std_pearson_r": 0.008989037646041557,
+          "min_pearson_r": 0.9732482037279704,
+          "mean_mae": 1.1608114043690205
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9822987122943105,
+          "std_pearson_r": 0.027437812361338087,
+          "min_pearson_r": 0.9253184008709956,
+          "mean_mae": 2.0124521422230632
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9998833396480966,
+          "std_pearson_r": 0.00016996224076290805,
+          "min_pearson_r": 0.999493935025813,
+          "mean_mae": 0.0717767286368291
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9999019116028048,
+          "std_pearson_r": 0.00014948051141653923,
+          "min_pearson_r": 0.9995545021058597,
+          "mean_mae": 0.05340998298630571
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9898263458164276,
+          "std_pearson_r": 0.015524114219769292,
+          "min_pearson_r": 0.9545155052106153,
+          "mean_mae": 1.695371540382785
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9866225007202091,
+          "std_pearson_r": 0.02447229962484644,
+          "min_pearson_r": 0.9294933242407869,
+          "mean_mae": 1.2237782727389326
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9920281032050332,
+          "std_pearson_r": 0.015188894225004251,
+          "min_pearson_r": 0.9558176445353576,
+          "mean_mae": 0.7581012457730942
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.977644319713117,
+      "recommendation": "Excellent stability (min_r=0.961)",
+      "status": "HIGHLY_RECOMMENDED"
+    },
+    "Formants": {
+      "name": "Formants",
+      "category": "Formants",
+      "n_dims": 8,
+      "mean_pearson_r": 0.940314684016612,
+      "min_pearson_r": 0.7675991630027537,
+      "max_pearson_r": 0.9971644029074478,
+      "std_pearson_r": 0.0826766049910951,
+      "worst_codec": "g711_alaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.7675991630027537,
+          "std_pearson_r": 0.21238375388007724,
+          "min_pearson_r": 0.22968840097713583,
+          "mean_mae": 121.62489579247585
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.8086400852762055,
+          "std_pearson_r": 0.19870241403196923,
+          "min_pearson_r": 0.32477642772168197,
+          "mean_mae": 106.74846959342632
+        },
+        "g722": {
+          "mean_pearson_r": 0.9592201549422923,
+          "std_pearson_r": 0.04471030871485205,
+          "min_pearson_r": 0.846427106911996,
+          "mean_mae": 36.346515253397506
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9774094378607565,
+          "std_pearson_r": 0.020590283786706937,
+          "min_pearson_r": 0.9296884120614309,
+          "mean_mae": 26.929905827733865
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9937773030845846,
+          "std_pearson_r": 0.005863918285717545,
+          "min_pearson_r": 0.9791108527030252,
+          "mean_mae": 13.068829937752858
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9971644029074478,
+          "std_pearson_r": 0.0027827529423117537,
+          "min_pearson_r": 0.9901905235964452,
+          "mean_mae": 7.986890852883486
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9757953300435118,
+          "std_pearson_r": 0.013932669161400157,
+          "min_pearson_r": 0.9529670201347972,
+          "mean_mae": 28.236142082588426
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9901267213100545,
+          "std_pearson_r": 0.00640635544433215,
+          "min_pearson_r": 0.9760817652514877,
+          "mean_mae": 17.5896691045816
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9930995577219022,
+          "std_pearson_r": 0.0045948735212032925,
+          "min_pearson_r": 0.9827758957887237,
+          "mean_mae": 15.13752546584678
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9851732939603202,
+      "recommendation": "Poor stability (min_r=0.768), avoid for codec-robust systems",
+      "status": "NOT_RECOMMENDED"
+    },
+    "Glottal": {
+      "name": "Glottal",
+      "category": "Glottal",
+      "n_dims": 8,
+      "mean_pearson_r": 0.9839756878387027,
+      "min_pearson_r": 0.9330093960524751,
+      "max_pearson_r": 0.9997609428197304,
+      "std_pearson_r": 0.02702214962398907,
+      "worst_codec": "g711_ulaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.9339585177766585,
+          "std_pearson_r": 0.06556908467566874,
+          "min_pearson_r": 0.8501151445717404,
+          "mean_mae": 0.949334524898199
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.9330093960524751,
+          "std_pearson_r": 0.06663150674201368,
+          "min_pearson_r": 0.8457185370749011,
+          "mean_mae": 0.9491723496876106
+        },
+        "g722": {
+          "mean_pearson_r": 0.9951128936442049,
+          "std_pearson_r": 0.005908390379918408,
+          "min_pearson_r": 0.9858600984104647,
+          "mean_mae": 0.04382281020188749
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9979662981433732,
+          "std_pearson_r": 0.002022862020397269,
+          "min_pearson_r": 0.9947712384042051,
+          "mean_mae": 0.07286892776431983
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.9995267468628911,
+          "std_pearson_r": 0.0006295457965569436,
+          "min_pearson_r": 0.9982240885411143,
+          "mean_mae": 0.04175591143058617
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9997609428197304,
+          "std_pearson_r": 0.0005711868711520365,
+          "min_pearson_r": 0.9982516104679205,
+          "mean_mae": 0.039495384368619595
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9979797263166406,
+          "std_pearson_r": 0.0022614665534258704,
+          "min_pearson_r": 0.992600200321791,
+          "mean_mae": 0.044124693887005254
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9992290387342952,
+          "std_pearson_r": 0.0012300808051881162,
+          "min_pearson_r": 0.9960504436668937,
+          "mean_mae": 0.03516000899061379
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9992376301980547,
+          "std_pearson_r": 0.0011027105355146947,
+          "min_pearson_r": 0.996475145115378,
+          "mean_mae": 0.03151907401496808
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.8892728974259185,
+      "recommendation": "Good stability (min_r=0.933)",
+      "status": "RECOMMENDED"
+    },
+    "Temporal": {
+      "name": "Temporal",
+      "category": "Temporal",
+      "n_dims": 8,
+      "mean_pearson_r": 0.9706836643842381,
+      "min_pearson_r": 0.9038198649805449,
+      "max_pearson_r": 0.998754844973424,
+      "std_pearson_r": 0.03693637235516357,
+      "worst_codec": "g711_ulaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.9050946862427403,
+          "std_pearson_r": 0.13555428808476438,
+          "min_pearson_r": 0.5714467124151524,
+          "mean_mae": 0.27126094812842294
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.9038198649805449,
+          "std_pearson_r": 0.14026314837269757,
+          "min_pearson_r": 0.5596152186246501,
+          "mean_mae": 0.2747237392234471
+        },
+        "g722": {
+          "mean_pearson_r": 0.9664324132974393,
+          "std_pearson_r": 0.04316718652268891,
+          "min_pearson_r": 0.8680860671814952,
+          "mean_mae": 0.10905184971787098
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9911671449528906,
+          "std_pearson_r": 0.00994243748119795,
+          "min_pearson_r": 0.9671821620196254,
+          "mean_mae": 0.09625956216832056
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.997868204279468,
+          "std_pearson_r": 0.0032202816436338226,
+          "min_pearson_r": 0.9897774935668735,
+          "mean_mae": 0.04451599685310669
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.998754844973424,
+          "std_pearson_r": 0.0018130237897666143,
+          "min_pearson_r": 0.9945094240085505,
+          "mean_mae": 0.03290523567505663
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9768100396512953,
+          "std_pearson_r": 0.01876197902626952,
+          "min_pearson_r": 0.9397114721030644,
+          "mean_mae": 0.16421207518548436
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9978013946016517,
+          "std_pearson_r": 0.0023515122459873386,
+          "min_pearson_r": 0.99179977258385,
+          "mean_mae": 0.03526905443434554
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9984043864786889,
+          "std_pearson_r": 0.001846753440635508,
+          "min_pearson_r": 0.9937353099397854,
+          "mean_mae": 0.028034302806666068
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.9939734496991024,
+      "recommendation": "Good stability (min_r=0.904)",
+      "status": "RECOMMENDED"
+    },
+    "Wavelet": {
+      "name": "Wavelet",
+      "category": "Wavelet",
+      "n_dims": 16,
+      "mean_pearson_r": 0.9959850466737614,
+      "min_pearson_r": 0.9851129525486167,
+      "max_pearson_r": 0.9998864824127381,
+      "std_pearson_r": 0.005898264701154631,
+      "worst_codec": "g711_alaw",
+      "codec_results": {
+        "g711_alaw": {
+          "mean_pearson_r": 0.9851129525486167,
+          "std_pearson_r": 0.051099182148197135,
+          "min_pearson_r": 0.7876371373509925,
+          "mean_mae": 0.0037503128301652907
+        },
+        "g711_ulaw": {
+          "mean_pearson_r": 0.9851421365461837,
+          "std_pearson_r": 0.051070836188922566,
+          "min_pearson_r": 0.7877681357759442,
+          "mean_mae": 0.003537122378248513
+        },
+        "g722": {
+          "mean_pearson_r": 0.9963459751063352,
+          "std_pearson_r": 0.003448310442135952,
+          "min_pearson_r": 0.9870345537647801,
+          "mean_mae": 0.008741379263771916
+        },
+        "mp3_32k": {
+          "mean_pearson_r": 0.9992804565494771,
+          "std_pearson_r": 0.0011157882233169857,
+          "min_pearson_r": 0.9958010611151755,
+          "mean_mae": 0.01491428785446834
+        },
+        "mp3_64k": {
+          "mean_pearson_r": 0.99986846608049,
+          "std_pearson_r": 0.0004638401935167223,
+          "min_pearson_r": 0.9980729000678632,
+          "mean_mae": 0.006379521018709921
+        },
+        "mp3_128k": {
+          "mean_pearson_r": 0.9998864824127381,
+          "std_pearson_r": 0.0004390113364578898,
+          "min_pearson_r": 0.9981861989827343,
+          "mean_mae": 0.0053243571705044995
+        },
+        "aac_32k": {
+          "mean_pearson_r": 0.9986535205776474,
+          "std_pearson_r": 0.001049048198842859,
+          "min_pearson_r": 0.9963772404118006,
+          "mean_mae": 0.014868093291635211
+        },
+        "aac_64k": {
+          "mean_pearson_r": 0.9997638682221567,
+          "std_pearson_r": 0.00023777756887284472,
+          "min_pearson_r": 0.9991404348848627,
+          "mean_mae": 0.0037760485069138323
+        },
+        "aac_128k": {
+          "mean_pearson_r": 0.9998115620202072,
+          "std_pearson_r": 0.00021334892285585893,
+          "min_pearson_r": 0.9992104957748633,
+          "mean_mae": 0.0027029993364904954
+        }
+      },
+      "cohens_d": NaN,
+      "auc_roc": 0.0,
+      "extraction_time_ms": 0.0,
+      "memory_mb": 0.0,
+      "wilcoxon_p": NaN,
+      "icc": 0.999978449970215,
+      "recommendation": "Excellent stability (min_r=0.985)",
+      "status": "HIGHLY_RECOMMENDED"
+    }
+  }
+}

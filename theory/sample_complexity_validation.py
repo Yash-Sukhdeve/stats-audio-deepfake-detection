@@ -25,6 +25,8 @@ from scipy import stats
 from typing import Tuple, List, Dict
 import os
 import sys
+import warnings
+from pathlib import Path
 
 # Add project root to path
 sys.path.append('/home/lab2208/Documents/df_detection')
@@ -106,56 +108,62 @@ class PACBayesBound:
             'is_non_vacuous': total < 0.5
         }
 
-    def simulate_empirical_gap(self, m: int, n_trials: int = 100) -> Tuple[float, float]:
+    def compute_empirical_gap_real(self, real_features: np.ndarray, real_labels: np.ndarray,
+                                    n_trials: int = 100) -> Tuple[float, float]:
         """
-        Simulate empirical generalization gap using synthetic data.
+        Compute empirical generalization gap using REAL acoustic features.
 
-        This simulates a feature selection scenario where we select K features
-        from a larger pool and measure the empirical gap between training and
-        validation performance.
+        # Empirical validation uses real ASVspoof 2019 LA training features (not synthetic)
+
+        Uses repeated random train/val splits of the real data to measure the
+        empirical generalization gap for feature-selection-based classification.
 
         Args:
-            m: Number of training samples
-            n_trials: Number of simulation trials
+            real_features: Real acoustic features array (m, K)
+            real_labels: Real binary labels array (m,)
+            n_trials: Number of random split trials
 
         Returns:
             Tuple of (mean_gap, std_gap)
         """
+        m_real = real_features.shape[0]
+        K_real = real_features.shape[1]
         gaps = []
 
-        for _ in range(n_trials):
-            # Simulate feature selection on synthetic data
-            # Generate random features (representing audio features)
-            n_total_features = self.K * 2  # Total feature pool
+        for trial in range(n_trials):
+            # Random train/val split (70/30) of real data
+            indices = np.random.permutation(m_real)
+            split = int(0.7 * m_real)
+            train_idx = indices[:split]
+            val_idx = indices[split:]
 
-            # Training data
-            X_train = np.random.randn(m, n_total_features)
-            # Binary labels (genuine vs spoofed)
-            y_train = np.random.randint(0, 2, m)
+            X_train = real_features[train_idx]
+            y_train = real_labels[train_idx]
+            X_val = real_features[val_idx]
+            y_val = real_labels[val_idx]
 
-            # Validation data (same size as training for fair comparison)
-            X_val = np.random.randn(m, n_total_features)
-            y_val = np.random.randint(0, 2, m)
+            m_train = X_train.shape[0]
+            m_val = X_val.shape[0]
 
-            # Feature selection: select top K features based on mutual information proxy
-            # Using correlation with labels as a simple proxy
+            # Feature selection: select top K features based on correlation with labels
+            # (K may equal total features if K >= K_real; use min)
+            n_select = min(self.K, K_real)
             feature_scores = np.abs([np.corrcoef(X_train[:, i], y_train)[0, 1]
-                                    for i in range(n_total_features)])
-            selected_features = np.argsort(feature_scores)[-self.K:]
+                                     if np.std(X_train[:, i]) > 1e-10 else 0.0
+                                     for i in range(K_real)])
+            selected_features = np.argsort(feature_scores)[-n_select:]
 
             # Apply feature selection
             X_train_selected = X_train[:, selected_features]
             X_val_selected = X_val[:, selected_features]
 
-            # Simple linear classifier (logistic regression proxy)
-            # Using closed-form solution for computational efficiency
-            X_train_bias = np.c_[np.ones(m), X_train_selected]
-            X_val_bias = np.c_[np.ones(m), X_val_selected]
+            # Ridge regression classifier
+            X_train_bias = np.c_[np.ones(m_train), X_train_selected]
+            X_val_bias = np.c_[np.ones(m_val), X_val_selected]
 
-            # Ridge regression solution (regularized to prevent overfitting)
             lambda_reg = 0.1
             w = np.linalg.solve(
-                X_train_bias.T @ X_train_bias + lambda_reg * np.eye(self.K + 1),
+                X_train_bias.T @ X_train_bias + lambda_reg * np.eye(n_select + 1),
                 X_train_bias.T @ y_train
             )
 
@@ -172,12 +180,105 @@ class PACBayesBound:
 
         return np.mean(gaps), np.std(gaps)
 
+    def simulate_empirical_gap_synthetic(self, m: int, n_trials: int = 100) -> Tuple[float, float]:
+        """
+        Fallback: simulate empirical generalization gap using synthetic Gaussian data.
+
+        Only used when real feature files are unavailable.
+
+        Args:
+            m: Number of training samples
+            n_trials: Number of simulation trials
+
+        Returns:
+            Tuple of (mean_gap, std_gap)
+        """
+        gaps = []
+
+        for _ in range(n_trials):
+            n_total_features = self.K * 2
+
+            X_train = np.random.randn(m, n_total_features)
+            y_train = np.random.randint(0, 2, m)
+
+            X_val = np.random.randn(m, n_total_features)
+            y_val = np.random.randint(0, 2, m)
+
+            feature_scores = np.abs([np.corrcoef(X_train[:, i], y_train)[0, 1]
+                                    for i in range(n_total_features)])
+            selected_features = np.argsort(feature_scores)[-self.K:]
+
+            X_train_selected = X_train[:, selected_features]
+            X_val_selected = X_val[:, selected_features]
+
+            X_train_bias = np.c_[np.ones(m), X_train_selected]
+            X_val_bias = np.c_[np.ones(m), X_val_selected]
+
+            lambda_reg = 0.1
+            w = np.linalg.solve(
+                X_train_bias.T @ X_train_bias + lambda_reg * np.eye(self.K + 1),
+                X_train_bias.T @ y_train
+            )
+
+            train_pred = (X_train_bias @ w > 0.5).astype(int)
+            val_pred = (X_val_bias @ w > 0.5).astype(int)
+
+            train_acc = np.mean(train_pred == y_train)
+            val_acc = np.mean(val_pred == y_val)
+
+            gap = train_acc - val_acc
+            gaps.append(max(0, gap))
+
+        return np.mean(gaps), np.std(gaps)
+
+
+def _load_real_features():
+    """
+    Load real ASVspoof 2019 LA training features for empirical validation.
+
+    Returns:
+        Tuple of (features, labels) or (None, None) if files not found.
+    """
+    features_dir = Path(__file__).parent / 'features'
+    features_path = features_dir / 'acoustic_v4_train_2019_fixed.npy'
+    labels_path = features_dir / 'labels_train_2019.npy'
+
+    if not features_path.exists() or not labels_path.exists():
+        warnings.warn(
+            f"Real feature files not found at {features_dir}. "
+            f"Expected: acoustic_v4_train_2019_fixed.npy and labels_train_2019.npy. "
+            f"Falling back to synthetic Gaussian data for empirical validation.",
+            UserWarning
+        )
+        return None, None
+
+    # Empirical validation uses real ASVspoof 2019 LA training features (not synthetic)
+    real_features = np.load(features_path)
+    real_labels = np.load(labels_path)
+
+    # Handle NaN
+    real_features = np.nan_to_num(real_features, nan=0.0)
+
+    # Use actual m and K from real data
+    m_real = real_features.shape[0]  # 25,380
+    K_real = real_features.shape[1]  # 36
+
+    print(f"  Loaded real features: m={m_real:,}, K={K_real}")
+    return real_features, real_labels
+
 
 def run_experiments():
     """
     Run sample complexity experiments for different sample sizes.
     Using training set only (m = 25,380) as the PAC-Bayes bound applies to training data.
+
+    Empirical validation uses real ASVspoof 2019 LA training features when available,
+    with graceful fallback to synthetic data if feature files are missing.
     """
+    # Load real features for empirical validation
+    real_features, real_labels = _load_real_features()
+    use_real = real_features is not None
+
     # Initialize PAC-Bayes bound calculator
     # max_kl=None means worst-case K*ln(2) for deterministic posterior
     pac_bayes = PACBayesBound(K=64, delta=0.05, max_kl=None)
@@ -200,19 +301,48 @@ def run_experiments():
     print("=" * 60)
     print(f"Parameters: K={pac_bayes.K}, δ={pac_bayes.delta}, KL=K*ln(2)={pac_bayes.K * np.log(2):.2f} (worst-case)")
     print("Using training set only (m = 25,380) as the PAC-Bayes bound applies to training data.")
+    if use_real:
+        print(f"Empirical validation: REAL features (m={real_features.shape[0]:,}, K={real_features.shape[1]})")
+    else:
+        print("Empirical validation: SYNTHETIC data (real features not available)")
     print("=" * 60)
 
     for m in sample_sizes:
         print(f"\nSample size m = {m:,}")
         print("-" * 40)
 
-        # Compute theoretical bound
+        # Compute theoretical bound (mathematical, independent of data)
         terms = pac_bayes.compute_individual_terms(m)
         theoretical_bound = terms['total_slack']
 
-        # Simulate empirical gap
-        print("  Simulating empirical gap...")
-        emp_mean, emp_std = pac_bayes.simulate_empirical_gap(m, n_trials=100)
+        # Compute empirical gap using real features or synthetic fallback
+        if use_real:
+            # Empirical validation uses real ASVspoof 2019 LA training features (not synthetic)
+            # Subsample real data to match the target sample size m
+            m_real = real_features.shape[0]
+            if m <= m_real:
+                # Subsample real data to size m for this experiment point
+                print(f"  Computing empirical gap with real features (subsampled to m={m:,})...")
+                emp_gaps = []
+                for trial in range(100):
+                    idx = np.random.choice(m_real, size=m, replace=False)
+                    sub_features = real_features[idx]
+                    sub_labels = real_labels[idx]
+                    trial_mean, _ = pac_bayes.compute_empirical_gap_real(
+                        sub_features, sub_labels, n_trials=1
+                    )
+                    emp_gaps.append(trial_mean)
+                emp_mean = np.mean(emp_gaps)
+                emp_std = np.std(emp_gaps)
+            else:
+                # m exceeds real data size; use full real data
+                print(f"  Computing empirical gap with full real features (m_real={m_real:,})...")
+                emp_mean, emp_std = pac_bayes.compute_empirical_gap_real(
+                    real_features, real_labels, n_trials=100
+                )
+        else:
+            print("  Simulating empirical gap (synthetic fallback)...")
+            emp_mean, emp_std = pac_bayes.simulate_empirical_gap_synthetic(m, n_trials=100)
 
         # Store results
         results['m'].append(m)
@@ -453,7 +583,7 @@ The non-vacuous bound has important implications:
 
 1. **Prior Distribution**: Uses uniform prior over feature subsets
 2. **Worst-Case KL**: Uses KL(Q||P) = K*ln(2) (deterministic posterior, worst case)
-3. **Synthetic Data**: Empirical validation uses synthetic data mimicking audio feature statistics
+3. **Real Data**: Empirical validation uses real ASVspoof 2019 LA training features (acoustic v4, 36-dim)
 4. **Training Set Only**: m = 25,380 (ASVspoof 2019 LA train), as PAC-Bayes applies to training data
 
 ### Limitations

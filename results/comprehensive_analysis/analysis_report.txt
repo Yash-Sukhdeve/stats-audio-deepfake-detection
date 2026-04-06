@@ -1,0 +1,127 @@
+================================================================================
+COMPREHENSIVE ACOUSTIC FEATURE ANALYSIS REPORT
+Audio Deepfake Detection - Codec Robustness Validation
+Generated: 2026-04-05 17:59:04
+================================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+Total Features Analyzed: 16
+  - HIGHLY RECOMMENDED: 3
+  - RECOMMENDED: 3
+  - ACCEPTABLE: 3
+  - NOT RECOMMENDED: 7
+
+DETAILED RESULTS BY CATEGORY
+----------------------------------------
+
+FORMANTS FEATURES:
+  ❌ Formants (8D)
+      Mean r: 0.9403, Min r: 0.7676, Worst: g711_alaw
+      Poor stability (min_r=0.768), avoid for codec-robust systems
+
+GLOTTAL FEATURES:
+  ✅ Glottal (8D)
+      Mean r: 0.9840, Min r: 0.9330, Worst: g711_ulaw
+      Good stability (min_r=0.933)
+
+PHASE FEATURES:
+  ❌ Instantaneous-Freq (8D)
+      Mean r: 0.8593, Min r: 0.6581, Worst: g711_alaw
+      Poor stability (min_r=0.658), avoid for codec-robust systems
+  ❌ MODGD (12D)
+      Mean r: 0.4036, Min r: -0.0132, Worst: g722
+      Poor stability (min_r=-0.013), avoid for codec-robust systems
+
+PROSODIC FEATURES:
+  ✅ Prosody (7D)
+      Mean r: 0.9852, Min r: 0.9610, Worst: g711_ulaw
+      Excellent stability (min_r=0.961)
+
+SPECTRAL FEATURES:
+  ✅ Chroma (12D)
+      Mean r: 0.9734, Min r: 0.9598, Worst: g722
+      Excellent stability (min_r=0.960)
+  ⚠️ PNCC (13D)
+      Mean r: 0.9721, Min r: 0.8886, Worst: g711_alaw
+      Moderate stability (min_r=0.889), use with caution
+  ⚠️ Mel-Spectrogram (40D)
+      Mean r: 0.9619, Min r: 0.8356, Worst: g711_alaw
+      Moderate stability (min_r=0.836), use with caution
+  ✅ Tonnetz (6D)
+      Mean r: 0.9580, Min r: 0.9418, Worst: aac_32k
+      Good stability (min_r=0.942)
+  ⚠️ MFCC (13D)
+      Mean r: 0.9547, Min r: 0.8485, Worst: g711_ulaw
+      Moderate stability (min_r=0.849), use with caution
+  ❌ LFCC (8D)
+      Mean r: 0.8983, Min r: 0.6143, Worst: g711_ulaw
+      Poor stability (min_r=0.614), avoid for codec-robust systems
+  ❌ Spectral-Statistics (8D)
+      Mean r: 0.8770, Min r: 0.5545, Worst: g711_alaw
+      Poor stability (min_r=0.555), avoid for codec-robust systems
+  ❌ Spectral-Contrast (7D)
+      Mean r: 0.8670, Min r: 0.7814, Worst: g722
+      Poor stability (min_r=0.781), avoid for codec-robust systems
+  ❌ CQT (40D)
+      Mean r: 0.6847, Min r: 0.4360, Worst: g722
+      Poor stability (min_r=0.436), avoid for codec-robust systems
+
+TEMPORAL FEATURES:
+  ✅ Temporal (8D)
+      Mean r: 0.9707, Min r: 0.9038, Worst: g711_ulaw
+      Good stability (min_r=0.904)
+
+WAVELET FEATURES:
+  ✅ Wavelet (16D)
+      Mean r: 0.9960, Min r: 0.9851, Worst: g711_alaw
+      Excellent stability (min_r=0.985)
+
+================================================================================
+FINAL RECOMMENDATIONS FOR CODEC-ROBUST DEEPFAKE DETECTION
+================================================================================
+
+1. HIGHLY RECOMMENDED (min_r >= 0.95):
+   - Wavelet: 16D, mean_r=0.9960
+   - Prosody: 7D, mean_r=0.9852
+   - Chroma: 12D, mean_r=0.9734
+
+2. RECOMMENDED (min_r >= 0.90):
+   - Glottal: 8D, mean_r=0.9840
+   - Temporal: 8D, mean_r=0.9707
+   - Tonnetz: 6D, mean_r=0.9580
+
+3. ACCEPTABLE WITH CAUTION (0.80 <= min_r < 0.90):
+   - PNCC: 13D, min_r=0.8886, worst=g711_alaw
+   - Mel-Spectrogram: 40D, min_r=0.8356, worst=g711_alaw
+   - MFCC: 13D, min_r=0.8485, worst=g711_ulaw
+
+4. NOT RECOMMENDED (min_r < 0.80):
+   - MODGD: 12D, min_r=-0.0132, worst=g722
+   - CQT: 40D, min_r=0.4360, worst=g722
+   - Spectral-Statistics: 8D, min_r=0.5545, worst=g711_alaw
+   - LFCC: 8D, min_r=0.6143, worst=g711_ulaw
+     ⚠️ WARNING: Literature claimed codec robustness - NOT CONFIRMED!
+   - Instantaneous-Freq: 8D, min_r=0.6581, worst=g711_alaw
+   - Formants: 8D, min_r=0.7676, worst=g711_alaw
+     ⚠️ WARNING: Literature claimed codec robustness - NOT CONFIRMED!
+   - Spectral-Contrast: 7D, min_r=0.7814, worst=g722
+
+================================================================================
+SUGGESTED CODEC-ROBUST FEATURE VECTOR
+================================================================================
+
+Total dimensions: 57
+Components:
+  - Wavelet (16D): DWT coefficients (db4)
+    Reference: Mallat (1989)
+  - Prosody (7D): F0, energy, duration, HNR
+    Reference: Jadoul et al. (2018) - Parselmouth
+  - Glottal (8D): Spectral tilt, H1-H2, HRF
+    Reference: Drugman et al. (2012)
+  - Chroma (12D): Pitch class distribution
+    Reference: Bartsch & Wakefield (2005)
+  - Temporal (8D): ZCR, STE, onset statistics
+    Reference: Various
+  - Tonnetz (6D): Tonal centroid features
+    Reference: Harte et al. (2006)

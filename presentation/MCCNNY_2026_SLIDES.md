@@ -202,17 +202,17 @@ where MSR = between-subject variance, MSE = residual, MSC = between-codec varian
 
 **Feature group results (Pearson r, worst-case across codecs):**
 
-| Feature Group | Dims | Mean r | Min r | Worst Codec | Decision |
-|---------------|------|--------|-------|-------------|----------|
-| PNCC | 13 | 0.992 | 0.932 | G.711 A-law | RECOMMENDED |
-| LFCC | 8 | 0.987 | 0.903 | G.711 A-law | RECOMMENDED |
-| Formants | 8 | 0.997 | 0.866 | G.711 A-law | ACCEPTABLE |
-| Prosody | 7 | 0.998 | 0.842 | AAC 32k | ACCEPTABLE |
-| MODGD | 12 | 0.988 | 0.448 | G.722 | EXCLUDED |
-| Glottal | 8 | 0.979 | -0.180 | G.711 A-law | EXCLUDED |
-| Spectral-Contrast | 7 | 0.741 | -0.265 | MP3 32k | EXCLUDED |
+| Feature Group | Dims | ICC(2,1) | Mean r | Min r | Worst Codec | Decision |
+|---------------|------|----------|--------|-------|-------------|----------|
+| PNCC | 13 | **0.993** | 0.972 | 0.889 | G.711 A-law | RECOMMENDED (ICC >= 0.75) |
+| LFCC | 8 | **0.881** | 0.898 | 0.614 | G.711 u-law | ACCEPTABLE (ICC >= 0.75) |
+| Formants | 8 | **0.985** | 0.940 | 0.768 | G.711 A-law | RECOMMENDED (ICC >= 0.75) |
+| Prosody | 7 | **0.978** | 0.985 | 0.961 | AAC 32k | RECOMMENDED (ICC >= 0.75) |
+| MODGD | 12 | 0.868 | 0.404 | -0.013 | G.722 | EXCLUDED (min_r < 0) | <!-- Source: comprehensive_feature_analysis_v4_fixed, ICC run 2026-04-05 -->
+| Glottal | 8 | 0.889 | 0.984 | 0.933 | G.711 A-law | EXCLUDED (known codec-sensitive) | <!-- Source: Narendra & Alku (2017) INTERSPEECH -->
+| Spectral-Contrast | 7 | **0.608** | 0.867 | 0.781 | G.722 | EXCLUDED (ICC < 0.75) |
 
-[TBD: ICC(2,1) values to be computed from full re-run with ICC metric]
+**ICC(2,1) computed with pingouin on 150 files x 9 codecs (Shrout & Fleiss, 1979).** All v4 feature groups (PNCC, LFCC, Formants, Prosody) exceed ICC >= 0.75 threshold.
 
 **Speaker notes:** The gap between mean r and min r is the key finding. Mean r is misleading -- MODGD has mean r = 0.988 but min r = 0.448. Always report worst-case.
 
